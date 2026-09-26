@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Refraction Simulator — Convex &amp; Concave Lens, Glass Slab, Snell's Law | Ray Scale</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Interactive refraction simulator. Add convex and concave lenses to see real and virtual image formation, or a glass slab to explore Snell's law, refractive index, lateral shift and critical angle. Built for JEE, NEET and high-school physics.">
+<meta name="keywords" content="refraction simulator, convex lens simulator, concave lens simulator, glass slab refraction, Snell's law, refractive index, critical angle, lateral shift, JEE NEET optics">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+  <a class="brand" href="index.html"><svg width="20" height="20" viewBox="0 0 20 20"><line x1="2" y1="2" x2="12" y2="10" stroke="#5b6dff" stroke-width="2"/><line x1="12" y1="2" x2="12" y2="18" stroke="#eef0f7" stroke-width="2"/><line x1="12" y1="10" x2="2" y2="18" stroke="#2dd4bf" stroke-width="2"/></svg>Ray Scale</a>
+  <span class="navdiv"></span>
+  <div class="navlinks">
+    <a class="navlink" href="index.html">Home</a>
+    <a class="navlink" href="reflection.html">Reflection</a>
+    <a class="navlink active" href="refraction.html">Refraction</a>
+    <a class="navlink" href="about.html">About</a>
+  </div>
+  <span class="spacer"></span>
+  <div class="unitgrp" id="unitGrp">
+    <button data-u="cm" class="active">cm</button><button data-u="m">m</button><button data-u="ft">ft</button><button data-u="in">in</button>
+  </div>
+</nav>
+<p class="sub">Refraction simulator — add a lens or a glass slab, drag to reposition, move the object to change the ray's angle into the slab.</p>
+<div class="toolbar">
+  <button class="add" onclick="addEl('convexlens')">+ Convex lens</button>
+  <button class="add" onclick="addEl('concavelens')">+ Concave lens</button>
+  <button class="add" onclick="addEl('slab')">+ Glass slab</button>
+  <button class="reset" onclick="resetBench()">Reset bench</button>
+  <div class="savebtns">
+    <button class="add" onclick="saveToFile()">💾 Save</button>
+    <button class="add" onclick="document.getElementById('loadFile').click()">📂 Load</button>
+    <input type="file" id="loadFile" accept="application/json" style="display:none" onchange="loadFromFile(event)">
+  </div>
+</div>
+<main>
+  <div id="stage">
+    <canvas id="cv"></canvas>
+    <div class="zoomctl">
+      <button onclick="zoomBtn(1.3)" title="Zoom in">+</button>
+      <button onclick="zoomBtn(0.77)" title="Zoom out">–</button>
+      <button onclick="autoFit();draw()" title="Fit to bench">⤢</button>
+    </div>
+  </div>
+  <div id="side">
+    <div class="sec"><h4>Object</h4><div class="cardlist" id="objCards"></div></div>
+    <div class="sec"><h4>Elements</h4><div class="cardlist" id="mirCards"></div></div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>Ray Scale ·</span>
+    <a href="about.html">About this project</a>
+    <a href="https://www.instagram.com/y66.praveen/" target="_blank" rel="noopener">Created by @y66.praveen</a>
+    <a href="https://www.instagram.com/y66.prateek/" target="_blank" rel="noopener">Visual Identity by @y66.prateek</a>
+    <span class="footer-dim">v1.0</span>
+  </div>
+</footer>
+<script src="refraction.js"></script>
+</body>
+</html>
