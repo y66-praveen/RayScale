@@ -116,8 +116,9 @@ function updateReadouts(){
 const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
 function fit(){
   const rect=cv.parentElement.getBoundingClientRect();
-  cv.width=rect.width*devicePixelRatio; cv.height=480*devicePixelRatio;
-  cv.style.height='480px'; ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  const H = window.innerWidth<760 ? (window.innerWidth<420?300:360) : 480;
+  cv.width=rect.width*devicePixelRatio; cv.height=H*devicePixelRatio;
+  cv.style.height=H+'px'; ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
 }
 window.addEventListener('resize',()=>{fit();draw();});
 function autoFit(){
