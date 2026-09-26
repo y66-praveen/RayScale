@@ -1,0 +1,12 @@
+{
+  "name": "Ray Scale — Ray Optics Simulator",
+  "short_name": "Ray Scale",
+  "description": "Interactive reflection and refraction simulator for mirrors, lenses and a glass slab.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0c0e18",
+  "theme_color": "#5b6dff",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
